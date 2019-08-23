@@ -37,7 +37,10 @@ server.use(session(sessionConfig));
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-
+server.get('/', (req, res) => {
+    res.status(200).json({ api: 'running' });
+  });
+  
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 server.use('/api/users', usersRouter);
