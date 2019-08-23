@@ -22,15 +22,17 @@ describe("HTTP Request Tests", () => {
         });
     });
   });
-  describe("Get /joke", () => {
-    it("returns a 200 OK message", () => {
-      return request(server)
-        .get("/api/jokes")
-        .then(res => {
-          expect(res.status).toBe(200);
+  describe("get joke", () => {
+  it('jokes', () => {
+    return request(server)
+      .get('/api/jokes/')
+      
+      .then(res => {
+          expect(res.type).toMatch(/json/);
         });
-    });
   });
+})
+})
   describe('POST register', () => {
     it('should post a new blog and return a status code of 404', () => {
       return request(server)
@@ -69,4 +71,3 @@ describe("HTTP Request Tests", () => {
     });
   })
 
-});
